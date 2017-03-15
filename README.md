@@ -2,19 +2,19 @@
 
 Ce dépôt `GIT` contient le sujet et les données utiles pour la réalisation du _petit_ projet du module de Programmation Avancée.
 
-> __Attention__: ce fichier risque d'évoluer au cours de l'avancée des projets. N'hésitez pas à la consulter régulièrement
+> __Attention__: ce fichier risque d'évoluer au cours de l'avancée des projets. N'hésitez pas à le consulter régulièrement.
 
 ## Résumé
 
-> L'objectif de ce projet est de vérifier que vous maîtrisez les principes vus en cours de programmation avancée: structures de données complexes, lecture / écriture de fichiers, compilation séparée et automatique, utilisation de gestionnaires de version...
+L'objectif de ce projet est de vérifier que vous maîtrisez les principes vus en cours de programmation avancée : structures de données complexes, lecture / écriture de fichiers, compilation séparée et automatique, utilisation de gestionnaire de version...
 
 Pour cela, le travail demandé est de réaliser une application qui permet d'analyser la liste des œuvres de la collection _tate_. Cette liste est stockée dans un fichier qui contient à l'heure actuelle près de 70 000 œuvres. Votre travail est de charger ce fichier pour effectuer un certain nombre de requêtes (liste des oeuvres, recherche d'un artiste...)
 
 ## Contexte
 
-De plus en plus d'institutions mettent à disposition leurs données pour les usagers (on parle d'_open data_). C'est le cas de _tate_, institution britannique, qui met à sa disposition toutes les œuvres stockées dans ses 4 musées. Ces données sont accessibles entre autres via leur page [tate gallery github](https://github.com/tategallery/collection). Pour ce projet nous avons récupéré le fichier datant de février 2017. 
+De plus en plus d'institutions mettent à disposition leurs données pour les usagers (on parle d'_open data_). C'est le cas de _tate_, institution britannique, qui met à disposition toutes les œuvres stockées dans ses 4 musées. Ces données sont accessibles entre autres via leur page [tate gallery github](https://github.com/tategallery/collection). Pour ce projet nous avons récupéré le fichier datant de février 2017. 
 
-Les données sont stockées dans un fichier `CSV` (_comma-separated values_) qui est un format texte permettant de stocker des tableaux. Chaque ligne du fichier correspond a une ligne du tableau et les différents éléments d'une ligne sont séparés par un élément particulier (en général une virgule `,` mais d'autres sont possibles `\t`, `;`...). La première ligne sert à décrire le nom des différents champs. Par exemple sur le fichier qui nous intéresse:
+Les données sont stockées dans un fichier `CSV` (_comma-separated values_) qui est un format texte permettant de stocker des tableaux. Chaque ligne du fichier correspond à une ligne du tableau et les différents éléments d'une ligne sont séparés par un élément particulier (en général une virgule `,` mais d'autres sont possibles `\t`, `;`...). La première ligne sert à décrire le nom des différents champs. Par exemple sur le fichier qui nous intéresse :
 
 ~~~
 id,accession_number,artist,artistRole,artistId,title,dateText,medium,creditLine,year,acquisitionYear,dimensions,width,height,depth,units,inscription,thumbnailCopyright,thumbnailUrl,url
@@ -22,14 +22,14 @@ id,accession_number,artist,artistRole,artistId,title,dateText,medium,creditLine,
 [...]
 ~~~
 
-Le premier champ de la première oeuvre correspond à l'identifiant (`1035`), le quatrième à l'artsite (`Blake, Robert`)...  Cet exemple vous permet déjà de constater qu'une entrée peut contenir des virgules qui ne sont pas considérées comme des séparateurs si l'entrée contient des guillemets (`"`). Il vous faudra être vigilant sur le traitement du fichier `CSV`.
+Le premier champ de la première œuvre correspond à l'identifiant (`1035`), le quatrième à l'artiste (`Blake, Robert`)...  Cet exemple vous permet déjà de constater qu'une entrée peut contenir des virgules qui ne sont pas considérées comme des séparateurs si l'entrée contient des guillemets (`"`). Il vous faudra être vigilant sur le traitement du fichier `CSV`.
 
 ## Cahier des charges
 
-Il vous est demandé de réaliser un programme qui charge les fichiers de données `CSV` (il y en a plusieurs de disponibles) et qui permet d'interroger facilement ce fichier. Il doit être possible de:
+Il vous est demandé de réaliser un programme qui charge les fichiers de données `CSV` (des exemples sont disponibles dans le répertoire `data`) et qui permet d'interroger facilement ce fichier. Il doit être possible de :
 
 - Lister toutes les oeuvres du fichier
-- Recherche l'existence d'un artiste (en spécifiant son `id`)
+- Vérifier l'existence d'un artiste (en spécifiant son `id`)
 - Lister toutes les oeuvres d'un artiste donné (en spécifiant son `id`)
 - Compter le nombre d'oeuvres d'un artiste donné (en spécifiant son `id`)
 - Afficher le nombre d'oeuvres par artiste (sous la forme `id | artist | number`)
@@ -37,7 +37,7 @@ Il vous est demandé de réaliser un programme qui charge les fichiers de donné
 
 Le volume de données est relativement important, par conséquent un soin particulier devra être apporté aux structures de données utilisées et à la rapidité d'exécution de votre programme. Les choix algorithmiques devront obligatoirement être expliqués et justifiés dans votre rapport.
 
-Pour permettre d'évaluer automatiquement la performance de votre programme et de permettre une utilisation automatique par redirection, votre programme devra fonctionner de la manière suivante:
+Pour permettre d'évaluer automatiquement la performance de votre programme et permettre une utilisation automatique par redirection, votre programme devra fonctionner de la manière suivante :
 
 1. charger le fichier de données
 2. attendre une commande
@@ -83,14 +83,14 @@ avec le fichier `requetes.txt` qui contient par exemple:
 
 > La date de fin de projet est le dimanche 19 juin 2016 23:59 CEST. Tout retard entraînera des pénalités.
 
-Vous n'avez rien à imprimer, ni des documents à envoyer par e-mail. Il faudra donner l'accès du dépôt à votre correcteur et celui-ci corrigera à partir de la dernière version du dépôt ou de la branche `release` (si elle existe) avant la date limite. Les `push` qui suivent la date limite ne seront pas considérés.
+Vous n'avez rien à imprimer, ni des documents à envoyer par e-mail. Il faudra donner l'accès du dépôt à votre correcteur et celui-ci corrigera à partir de la dernière version du dépôt ou de la branche `release` (si elle existe) avant la date limite. Les `push` qui suivraient la date limite ne seront pas considérés.
 
 Sur votre dépôt devront figurer :
 
 - le code source correctement commenté et indenté
 - un `Makefile` pour la compilation automatique
-- un `README.md` pour l'utilisation de votre programme
-- un rapport au format PDF ou un fichier `Rapport.md` (les autres formats ne sont pas acceptés) de 10 pages grand maximum qui explique vos choix de structures de données, vos choix de conception algorithmique et les principales étapes du déroulement de votre programme.
+- un `README.md` décrivant l'utilisation de votre programme
+- un rapport au format PDF ou un fichier `Rapport.md` (les autres formats ne sont pas acceptés) de 10 pages maximum qui explique vos choix de structures de données, vos choix de conception algorithmique et les principales étapes du déroulement de votre programme.
 
 ## Annexes
 
@@ -98,13 +98,13 @@ Sur votre dépôt devront figurer :
 
 Pour commencer à travailler, vous pouvez faire un fork du dépôt qui contient le fichier `README.md` que vous êtes en train de lire. Ne pas oublier d'ajouter votre correcteur dans la liste des personnes ayant accès à votre dépôt (menu `Settings` à droite puis Menu `Members` puis bouton `New Projet Member`).
 
-On rappelle brièvement les commandes `GIT` que vous serez amené à utiliser:
+On rappelle brièvement les commandes `GIT` que vous serez amené à utiliser :
 
-- `git help cmd`: pour avoir de l'aide sur la commande `cmd`
-- `git add fichier`: pour ajouter un nouveau fichier ou un fichier modifié
-- `git commit -m "message qui explique les modifications"`: pour sauvegarder les modifications dans le dépôt local
-- `git push`: pour mettre à jour le serveur avec votre version du dépôt
-- `git pull`: pour récupérer la dernière version du serveur
+- `git help cmd` : pour avoir de l'aide sur la commande `cmd`
+- `git add fichier` : pour ajouter au dépôt un nouveau fichier ou un fichier modifié
+- `git commit -m "message qui explique les modifications"` : pour sauvegarder les modifications dans le dépôt local
+- `git push` : pour mettre à jour le serveur avec votre version du dépôt
+- `git pull` : pour récupérer la dernière version du serveur
 - `git status`: pour voir l'état de votre dépôt local par rapport au serveur
 - `git log --pretty=format:"%h - %an, %ar : %s"`: afficher le log des commits
 
