@@ -2,6 +2,8 @@
 
 Ce dépôt `GIT` contient le sujet et les données utiles pour la réalisation du _petit_ projet du module de Programmation Avancée.
 
+> __Attention__: ce fichier risque d'évoluer au cours de l'avancée des projets. N'hésitez pas à la consulter régulièrement
+
 ## Résumé
 
 > L'objectif de ce projet est de vérifier que vous maîtrisez les principes vus en cours de programmation avancée: structures de données complexes, lecture / écriture de fichiers, compilation séparée et automatique, utilisation de gestionnaires de version...
