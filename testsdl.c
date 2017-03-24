@@ -47,10 +47,16 @@ int main(int argc, char *argv[]){
 	}
 	
 	SDL_WM_SetCaption("Galerie Tate Britain", NULL);
+	
 	screen = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE); 
 	imageDeFond = SDL_LoadBMP(path);
+	if(imageDeFond == NULL){
+		imageDeFond = SDL_LoadBMP("pics/indisponible.bmp");
+	}
+	
    	SDL_BlitSurface(imageDeFond, NULL, screen, &positionFond);
 	SDL_Flip(screen);
+
  	pause2();
 	
 	SDL_FreeSurface(imageDeFond);
