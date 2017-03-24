@@ -81,7 +81,7 @@ avec le fichier `requetes.txt` qui contient par exemple:
 
 ## Déliverables
 
-> La date de fin de projet est le dimanche 19 juin 2016 23:59 CEST. Tout retard entraînera des pénalités.
+> La date de fin de projet est le dimanche 4 juin 2017 23:59 CEST. Tout retard entraînera des pénalités.
 
 Vous n'avez rien à imprimer, ni des documents à envoyer par e-mail. Il faudra donner l'accès du dépôt à votre correcteur et celui-ci corrigera à partir de la dernière version du dépôt ou de la branche `release` (si elle existe) avant la date limite. Les `push` qui suivraient la date limite ne seront pas considérés.
 
@@ -207,3 +207,28 @@ __REMARQUE__: 3 points seront assignés suivant la vitesse d’exécution du pro
 | Précisions du CdC          | Pas mentionnées | Adaptations contraires au CdC | Adaptations OK avec le CdC mais non justifiées   |  Mentionnées et justifiées |
 | Justifications          | SD et algos ne sont pas justifiés | SD justifiées mais pas algos | SD justifiées et partiellement pour les algos   |  SD et algos clairement justifiés |
 | Limitations          | Limitations existantes ne sont pas mentionnées | Certaines limitations sont mentionnées | Limitations évoquées   |  Limitations évoquées et pistes de résolutions proposées |
+
+### Pour comparer votre programme
+
+Pour comparer votre programme à une solution possible, vous pouvez utiliser le binaire disponible sur le compte unix de `jdequidt` (il faut vous placer dans le répertoire `cd ~jdequidt/ima3_projet_test`)
+
+1. Utilisation simple
+
+~~~ 
+$  ./tate_art data/tate_artwork.csv
+~~~
+
+2. Utilisation avec requêtes prédéfinies
+
+~~~
+$ ./tate_art data/tate_artwork.csv < requetes/5000_req.txt 
+~~~
+
+
+3. Utilisation avec mesure du temps
+
+~~~
+$ time ./tate_art data/tate_artwork.csv < requetes/5000_req.txt > /dev/null
+~~~
+
+> la redirection de la sortie standard vers `/dev/null` permet de ne pas afficher les printf et de polluer l'affichage
