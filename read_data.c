@@ -16,7 +16,7 @@ bool read_file(){
         return false;
     }
     if((fp=fopen(FICHIER,"r"))==NULL){
-        printf("Imossible d'ouvrir le fichier, introuvable ?\n");
+        printf("Impossible d'ouvrir le fichier, introuvable ?\n");
     }
     while(fgets(buf,MAX_STR_LEN,fp)!=NULL){  //Utilisation de fgets car il garde les whitespace contrairement à fscanf
         if((strlen(buf)>0) && (buf[strlen(buf)-1]== '\n')){ //On vire les \n pour les remplacer par des fins de chaines ( on change de ligne )
