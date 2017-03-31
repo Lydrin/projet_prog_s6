@@ -3,22 +3,31 @@
 #include <SDL/SDL.h>
 #include <string.h>
 #include <unistd.h>
- 
 
-void pause2(){
-	int continuer = 1;
-	SDL_Event event;
-	while (continuer){
+#define W_HEIGHT 626
+#define W_WIDTH 626
 
-		SDL_WaitEvent(&event);
-        	switch(event.type){
-	       		case SDL_QUIT:
-	        	        continuer = 0;
-				break;
-        	}
-    	}
+
+void load_image(SDL_Surface ** dest, SDL_Rect * coor_img, char * img){
+	char cmd[18];
+	strcpy(cmd,"bash img_dl.sh ");
+	strcat(cmd, img);
+	system(cmd);
+
+
+	char path[20];
+	strcpy(path,"pics/");
+	strcat(path,img);
+	strcat(path,"_8.bmp");
+
+	*dest = SDL_LoadBMP(path);
+	if(*dest == NULL){
+		*dest = SDL_LoadBMP("pics/indisponible.bmp");
+	}
+	coor_img->x = (W_WIDTH - (*dest)->w)/2;
+	coor_img->y = (W_HEIGHT*0.6) - (*dest)->h/2;	
 }
- 
+
 
 int main(int argc, char *argv[]){
 	
@@ -33,7 +42,8 @@ int main(int argc, char *argv[]){
 	}
 	
 	SDL_WM_SetCaption("Galerie Tate Britain", NULL);	
-	screen = SDL_SetVideoMode(626, 626, 32, SDL_HWSURFACE); 
+	screen = SDL_SetVideoMode(W_HEIGHT, W_WIDTH, 32, SDL_HWSURFACE); 
+
 
 
 	//BACKGROUND
@@ -44,35 +54,33 @@ int main(int argc, char *argv[]){
 	SDL_BlitSurface(bg, NULL, screen, &coor_bg);
 	SDL_Flip(screen);
 
+
+
 	//IMAGE
 	char img[6];
-	scanf("%[^\n]s", &img);
-	char cmd[18];
-	strcpy(cmd,"bash img_dl.sh ");
-	strcat(cmd, img);
-
-	system(cmd);
-	
-	strcat(img,"_8.bmp");
-	char path[20];
-	strcpy(path,"pics/");
-	strcat(path,img);
-
+	scanf("%s",&img);
 	SDL_Rect coor_img;
-	coor_img.x = 150;
-    	coor_img.y = 200;
-	
-	image = SDL_LoadBMP(path);
-	if(image == NULL){
-		image = SDL_LoadBMP("pics/indisponible.bmp");
+	load_image(&image,&coor_img,img);
+	if(image!=NULL){
+   		SDL_BlitSurface(image, NULL, screen, &coor_img);
 	}
-	
-   	SDL_BlitSurface(image, NULL, screen, &coor_img);
-	
+
+
+
 	//PROCESS
 	SDL_Flip(screen);
- 	pause2();
-	
+ 	int continuer = 1;
+	SDL_Event event;
+	while (continuer){
+
+		SDL_WaitEvent(&event);
+        	switch(event.type){
+	       		case SDL_QUIT:
+	        	        continuer = 0;
+				break;
+        	}
+    	}
+
 
 	//FREE
 	SDL_FreeSurface(image);

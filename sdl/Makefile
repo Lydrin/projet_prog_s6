@@ -18,3 +18,4 @@ clean:
 
 cleanall: clean
 	rm -rf $(EXEC)
+	rm pics/A00*
