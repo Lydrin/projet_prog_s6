@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "structure2.h"
+#include "structure.h"
 
 #define FICHIER "./data/tate_artwork.csv"
 #define MAX_STR_LEN 2000 
@@ -140,6 +140,6 @@ void afficher_oeuvre(Oeuvre oeuvre){
 int main(void){
     Collection* ptrCollection = (Collection *)malloc(sizeof(Collection));
     read_file(ptrCollection);
-    afficher_oeuvre(ptrCollection->liste_oeuvre[2]);
+    afficher_oeuvre(ptrCollection->liste_oeuvre[8]);
     return 0;
 }
