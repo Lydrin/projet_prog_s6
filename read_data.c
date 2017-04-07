@@ -18,7 +18,7 @@ bool read_file(Collection* ptrCollection)
     }
     fgets(chaine, MAX_STR_LEN,fp); //On passe la première ligne useless
     while (fgets(chaine, MAX_STR_LEN, fp) != NULL) {
-        Oeuvre* current = &(ptrCollection->liste_oeuvre[i]);
+        Oeuvrefull* current = &(ptrCollection->liste_oeuvre[i]);
         current->id = atoi(parse(chaine));
         current->accession_number = strdup((parse(NULL)));
         current->artist = strdup(parse(NULL));
@@ -40,13 +40,14 @@ bool read_file(Collection* ptrCollection)
         current->thumbnailURL = strdup(parse(NULL));
         current->url = strdup(parse(NULL));
         i++;
+        ptrCollection -> dernier +=1;
     }
     free(chaine);
     chaine = NULL;
     return true;
 }
 
-void afficher_oeuvre(Oeuvre oeuvre)
+void afficher_oeuvre(Oeuvrefull oeuvre)
 {
 
     printf("ID : %d\n", oeuvre.id);
@@ -63,6 +64,7 @@ void afficher_oeuvre(Oeuvre oeuvre)
     printf("dimensions : %s\n", oeuvre.dimText);
     printf("width : %d\n", oeuvre.width);
     printf("height : %d\n", oeuvre.height);
+    printf("depth : %d\n", oeuvre.depth);
     printf("units : %s\n", oeuvre.unit);
     printf("inscription : %s\n", oeuvre.inscription);
     printf("thumbnailURL : %s\n", oeuvre.thumbnailURL);
@@ -72,10 +74,11 @@ void afficher_oeuvre(Oeuvre oeuvre)
 int main(void)
 {
     Collection* ptrCollection = (Collection*)malloc(sizeof(Collection));
+    ptrCollection -> dernier = -1;
     read_file(ptrCollection);
-    int i;
-    for(i=0;i<51;i++){
-       afficher_oeuvre(ptrCollection->liste_oeuvre[i]);
-    }
+    //int i;
+    //for(i=0;i<=ptrCollection->dernier;i++){
+     //  afficher_oeuvre(ptrCollection->liste_oeuvre[i]);
+    //}
     return 0;
 }

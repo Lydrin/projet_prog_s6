@@ -9,3 +9,5 @@
 
 #Ignore files with extension .o 
 *.o
+
+*.bmp

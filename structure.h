@@ -1,4 +1,5 @@
 #define MAX_OEUVRES 80000
+#define TABLE_SIZE 50
 typedef struct{
     int id;
     char* accession_number;
@@ -20,9 +21,25 @@ typedef struct{
     char* thumbnailCopyright;
     char* thumbnailURL;
     char* url;
-}Oeuvre; 
+}Oeuvrefull; 
+
+typedef struct Oeuvre{
+    int id;
+    char* title;
+    int year;
+    struct Oeuvre* next;
+}Oeuvre, *ListeOeuvre;
+
+typedef struct Artiste{
+    char* artistId;
+    char* nom;
+    Oeuvre* PtOeuvre;
+    struct Artiste* next;
+}Artiste, *ListeArtiste;
+
+typedef ListeArtiste HashListArtist[TABLE_SIZE];
 
 typedef struct{
-    Oeuvre liste_oeuvre[MAX_OEUVRES];
+    Oeuvrefull liste_oeuvre[MAX_OEUVRES];
     int dernier;
 }Collection;
