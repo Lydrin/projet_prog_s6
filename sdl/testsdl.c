@@ -61,6 +61,7 @@ int main(int argc, char *argv[]){
 	scanf("%s",&img);
 	SDL_Rect coor_img;
 	load_image(&image,&coor_img,img);
+
 	if(image!=NULL){
    		SDL_BlitSurface(image, NULL, screen, &coor_img);
 	}
@@ -75,8 +76,11 @@ int main(int argc, char *argv[]){
 
 		SDL_WaitEvent(&event);
         	switch(event.type){
-	       		case SDL_QUIT:
-	        	        continuer = 0;
+	       	case SDL_QUIT:
+	               	continuer = 0;
+				break;
+			case SDL_KEYDOWN:
+				
 				break;
         	}
     	}
