@@ -1,14 +1,36 @@
-#include "structure.h"
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef STDIO_H
+    #include <stdio.h>
+#endif
+
+#ifndef STDBOOL_H
+    #include <stdbool.h>
+#endif
+
+#ifndef STDLIB_H
+    #include <stdlib.h>
+#endif
+
+#ifndef STRING_H
+    #include <string.h>
+#endif
+
+#ifndef STRUCTURE_H
+    #include"structure.h"
+#endif
+
+#ifndef LISTECHAINES_H 
+    #include "listechaines.h"
+#endif
+
+#ifndef HASH_H
+    #include "hash.h"
+#endif
 
 #define FICHIER "./data/tate_artwork.csv"
 #define MAX_STR_LEN 20000
 char* parse(char* s);
 
-bool read_file(Collection* ptrCollection)
+bool read_file()
 { 
     FILE* fp;
     int i = 0;
@@ -17,30 +39,34 @@ bool read_file(Collection* ptrCollection)
         printf("Impossible d'ouvrir le fichier, introuvable ?\n");
     }
     fgets(chaine, MAX_STR_LEN,fp); //On passe la première ligne useless
-    while (fgets(chaine, MAX_STR_LEN, fp) != NULL) {
-        Oeuvrefull* current = &(ptrCollection->liste_oeuvre[i]);
-        current->id = atoi(parse(chaine));
-        current->accession_number = strdup((parse(NULL)));
-        current->artist = strdup(parse(NULL));
-        current->artistRole = strdup(parse(NULL));
-        current->artistId = atoi((parse(NULL)));
-        current->title = strdup(parse(NULL));
-        current->dateText = strdup(parse(NULL));
-        current->medium = strdup(parse(NULL));
-        current->creditLine = strdup(parse(NULL));
-        current->year = atoi(parse(NULL));
-        current->acquisitionYear = atoi(parse(NULL));
-        current->dimText = strdup(parse(NULL));
-        current->width = atoi(parse(NULL));
-        current->height = atoi(parse(NULL));
-        current->depth = atoi(parse(NULL));
-        current->unit = strdup(parse(NULL));
-        current->inscription = strdup(parse(NULL));
-        current->thumbnailCopyright = strdup(parse(NULL));
-        current->thumbnailURL = strdup(parse(NULL));
-        current->url = strdup(parse(NULL));
+    while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
+        char* idOeuvre;
+        char* accession_number;
+        char* artistName;
+        char* artistId;
+        char* title;
+        int year;
+        idOeuvre = strdup(parse(chaine));
+        accession_number = strdup((parse(NULL)));
+        artistName = strdup(parse(NULL));
+        parse(NULL); //Pass artistRole
+        artistId = strdup((parse(NULL)));
+        title = strdup(parse(NULL));
+        parse(NULL); //Pass dateText
+        parse(NULL);   //Pass medium
+        parse(NULL); //Pass creditLine
+        year = atoi(parse(NULL)); 
+        parse(NULL);//Pass acquisitionYear
+        parse(NULL); //Pass dimText
+        parse(NULL); //Pass width
+        parse(NULL); //Pass height
+        parse(NULL); //Pass depth
+        parse(NULL); //Pass unit
+        parse(NULL); //Pass inscription
+        parse(NULL); //Pass thumbnailCopyright
+        parse(NULL); //Pass thumbnailURL
+        parse(NULL); //Pass url
         i++;
-        ptrCollection -> dernier +=1;
     }
     free(chaine);
     chaine = NULL;
@@ -73,9 +99,9 @@ void afficher_oeuvre(Oeuvrefull oeuvre)
 
 int main(void)
 {
-    Collection* ptrCollection = (Collection*)malloc(sizeof(Collection));
-    ptrCollection -> dernier = -1;
-    read_file(ptrCollection);
+    HashListArtist ht;
+    init_ht(ht);
+    read_file(ht);
     //int i;
     //for(i=0;i<=ptrCollection->dernier;i++){
      //  afficher_oeuvre(ptrCollection->liste_oeuvre[i]);

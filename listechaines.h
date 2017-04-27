@@ -1,8 +1,12 @@
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
-#include<string.h>
-#include"structure.h"
+#ifndef STRUCTURE_H
+    #include"structure.h"
+#endif
+
+#ifndef HASH_H
+    #include "hash.h"
+#endif
+
+#define LISTECHAINES_H 
 
 void init_lchain(ListeOeuvre* list);
 

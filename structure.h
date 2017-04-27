@@ -1,4 +1,5 @@
 #define MAX_OEUVRES 80000
+#define STRUCTURE_H 
 #define TABLE_SIZE 50
 typedef struct{
     int id;

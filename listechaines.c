@@ -1,4 +1,33 @@
-#include "listechaines.h"
+#ifndef STDIO_H
+    #include <stdio.h>
+#endif
+
+#ifndef STDBOOL_H
+    #include <stdbool.h>
+#endif
+
+#ifndef STDLIB_H
+    #include <stdlib.h>
+#endif
+
+#ifndef STRING_H
+    #include <string.h>
+#endif
+
+#ifndef STRUCTURE_H
+    #include"structure.h"
+#endif
+
+#ifndef LISTECHAINES_H 
+    #include "listechaines.h"
+#endif
+
+#ifndef HASH_H
+    #include "hash.h"
+#endif
+
+
+
 void init_lchain(ListeOeuvre * list){ //Init new list
 	*list = NULL;
 }
@@ -17,6 +46,7 @@ void ajout_tete_artist(ListeArtiste* list,char* artistId,char* nom){
      newArtist->artistId = artistId;
      newArtist->nom = nom;
      newArtist->PtOeuvre =(Oeuvre*)malloc(sizeof(Oeuvre));
+     newArtist->nombreOeuvre = 0;
      (*newArtist).next = *list;
      *list = newArtist;
 }
@@ -39,22 +69,6 @@ void detruire_liste(ListeOeuvre* list){ //Pareil
     }
 }
 
-void ajout_artist_colision(ListeArtiste *pl, char* artistId, char* nom){
-    if( (*pl=NULL) || (strcmp(nom,(*pl) -> nom) < 1)){
-            ajout_tete_artist(pl,artistId,nom);
-    }
-    else if(strcmp(nom,(*pl)->nom)>1){
-        ajout_artist_colision(&(*pl)->next,artistId,nom);
-    }
-}
 void ajout_oeuvre_annee(ListeOeuvre *pl,int id, char* title, int year){
-    if( (*pl=NULL) || (year <= (*pl) -> year)){
        ajout_tete_oeuvre(pl,id,title,year); 
-    }
-    else if(year > (*pl) -> year){
-        ajout_oeuvre_annee(&(*pl)->next,id,title,year);
-    }
-
-
 }
-
