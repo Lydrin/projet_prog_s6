@@ -35,11 +35,7 @@ typedef struct Artiste{
     char* nom;
     Oeuvre* PtOeuvre;
     struct Artiste* next;
+    int nombreOeuvre;
 }Artiste, *ListeArtiste;
 
 typedef ListeArtiste HashListArtist[TABLE_SIZE];
-
-typedef struct{
-    Oeuvrefull liste_oeuvre[MAX_OEUVRES];
-    int dernier;
-}Collection;

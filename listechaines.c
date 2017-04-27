@@ -58,11 +58,3 @@ void ajout_oeuvre_annee(ListeOeuvre *pl,int id, char* title, int year){
 
 }
 
-int taille(ListeOeuvre list){
-    int i = 0;
-    while(list!=NULL){
-        i++;
-        list = list -> next;
-    }
-    return i;
-}
