@@ -38,4 +38,9 @@ typedef struct Artiste{
     int nombreOeuvre;
 }Artiste, *ListeArtiste;
 
+typedef struct{
+	Oeuvre* PtOeuvre;
+	Artiste* PtArtiste;
+}Vieille;
+
 typedef ListeArtiste HashListArtist[TABLE_SIZE];
