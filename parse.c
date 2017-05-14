@@ -1,6 +1,13 @@
 #include<stdio.h>
 #include<string.h>
-#include<stdbool.h>
+/*
+La fonction suivante est une modification personelle de la fonction strtok afin de pouvoir renvoyer un pointeur vers la chaine située
+après la "," et de la remplacer par /0. La modification repose sur le traitement du cas ",,," et du cas des "," non comptabilisées à
+l'intérieur des quotes.
+
+Ainsi "1970,"Blake, Robert",,," donnera quelque chose asimilable à [ "1970","Blake,Robert","","",""]
+
+*/
 char* parse(char* s)
 {
     static char* reste;

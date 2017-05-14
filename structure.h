@@ -1,3 +1,5 @@
+#ifndef STRUCTURE_H
+#define STRUCTURE_H
 #define MAX_OEUVRES 80000
 #define STRUCTURE_H 
 #define TABLE_SIZE 50
@@ -32,7 +34,7 @@ typedef struct Oeuvre{
 }Oeuvre, *ListeOeuvre;
 
 typedef struct Artiste{
-    char* artistId;
+    int artisteId;
     char* nom;
     Oeuvre* PtOeuvre;
     struct Artiste* next;
@@ -44,4 +46,5 @@ typedef struct{
 	Artiste* PtArtiste;
 }Vieille;
 
-typedef ListeArtiste HashListArtist[TABLE_SIZE];
+typedef ListeArtiste HashListeArtiste[TABLE_SIZE];
+#endif

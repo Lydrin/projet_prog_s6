@@ -1,18 +1,8 @@
-#ifndef STDIO_H
-     #include <stdio.h>
-#endif
-
-#ifndef DISPLAY_H
-	#include "display.h"
-#endif
-
-#ifndef HASH_H
-	#include "hash.h"
-#endif
-
-#ifndef STRUCTURE_H
-	#include "structure.h"
-#endif
+#include <stdio.h>
+#include<string.h>
+#include "display.h"
+#include "hash.h"
+#include "structure.h"
 
 
 void listeOeuvre(HashListeArtiste liste){
@@ -29,7 +19,7 @@ void listeOeuvre(HashListeArtiste liste){
 
 void displayOeuvre(Artiste * ptArtist){
 	Oeuvre * pOeuvre = ptArtist->PtOeuvre;
-	printf("List of pieces from %s (id = %d)\n",ptArtist->nom,ptArtist->artistId);
+	printf("List of pieces from %s (id = %d)\n",ptArtist->nom,ptArtist->artisteId);
 	int cpt = 0;
 	while(pOeuvre != NULL){
 		cpt++;
@@ -39,10 +29,10 @@ void displayOeuvre(Artiste * ptArtist){
 }
 
 void listeOeuvreByArtist(int idArtist, HashListeArtiste liste){
-	int h = hash(idArtist);
+	int h = hash_int(idArtist);
 	Artiste * ptArtist = liste[h];
 	while(ptArtist != NULL){
-		if(ptArtist->artistId == idArtist){
+		if(ptArtist->artisteId==idArtist){
 			displayOeuvre(ptArtist);
 		}
 		else{
@@ -53,14 +43,14 @@ void listeOeuvreByArtist(int idArtist, HashListeArtiste liste){
 }
 
 void displayNbOeuvre(Artiste * ptArtist){
-	printf("The artist id:%d (%s) has %d pieces\n",idArtist,ptArtist->nom, ptArtist->nombreOeuvre);
+	printf("The artist id:%d (%s) has %d pieces\n",ptArtist -> artisteId,ptArtist->nom, ptArtist->nombreOeuvre);
 }
 
 void nbOeuvreByArtist(int idArtist, HashListeArtiste liste){
-	int h = hash(idArtist);
+	int h = hash_int(idArtist);
 	Artiste * ptArtist = liste[h];
 	while(ptArtist != NULL){
-		if(ptArtist->artistId == idArtist){
+		if(ptArtist->artisteId==idArtist){
 			displayNbOeuvre(ptArtist);
 		}
 		else{
@@ -71,9 +61,9 @@ void nbOeuvreByArtist(int idArtist, HashListeArtiste liste){
 }
 
 
-void listeNbOeuvreByArtist(ListeArtiste liste){
+void listeNbOeuvreByArtist(HashListeArtiste liste){
 	int i;
-	Artiste * ptArtist;
+	Artiste*  ptArtist;
 	for(i=0;i<TABLE_SIZE;i++){
 		ptArtist = liste[i];
 		while(ptArtist != NULL){
@@ -84,7 +74,7 @@ void listeNbOeuvreByArtist(ListeArtiste liste){
 }
 
 void oldestOeuvre(Vieille * oldest){
-	printf("The oldest piece is \"%s\" (%d) from %s\n",(oldest->PtOeuvre)->nom,(oldest->PtOeuvre)->date,(oldest->PtArtiste)->nom);
+	printf("The oldest piece is \"%s\" (%d) from %s\n",(oldest->PtOeuvre)->title,(oldest->PtOeuvre)->year,(oldest->PtArtiste)->nom);
 }
 
 

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -W -Wall -pedantic
+CFLAGS = -W -Wall -pedantic -g
 LDFLAGS = 
 EXEC = read_data
 SRC = $(wildcard *.c) #définit la liste des .o du dossier

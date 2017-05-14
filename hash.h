@@ -1,32 +1,12 @@
-#ifndef STDIO_H
-    #include <stdio.h>
-#endif
-
-#ifndef STDBOOL_H
-    #include <stdbool.h>
-#endif
-
-#ifndef STDLIB_H
-    #include <stdlib.h>
-#endif
-
-#ifndef STRING_H
-    #include <string.h>
-#endif
-
-#ifndef STRUCTURE_H
-    #include"structure.h"
-#endif
-
-#ifndef LISTECHAINES_H 
-    #include "listechaines.h"
-#endif
-
+#ifndef HASH_H
 #define HASH_H
-
-
-int asciis(char* word);
-int hash(char* word);
-void init_ht(HashListArtist ht);
-void ajout_artiste(Artiste* artiste, HashListArtist ht); 
-bool is_artist(Artiste* artist, HashListArtist ht);
+#include <stdbool.h>
+#include"structure.h"
+int hash_word(char *word);
+int hash_int(int id);
+int asciis(char *word);
+void init_ht(HashListeArtiste ht); 
+void ajout_artiste(int artistId, char* nom, HashListeArtiste ht);
+Artiste* artiste_present(int artistId, ListeArtiste currentArtist);
+void detruire_hash_table(HashListeArtiste ht);
+#endif
