@@ -42,6 +42,7 @@ void detruire_liste_oeuvre(ListeOeuvre* list){ //Pareil
     Oeuvre* next;
     Oeuvre* current = *list;
     while(current != NULL){
+        free(current->title);
         next = current->next;
         free(current);
         current = next;
@@ -53,6 +54,7 @@ void detruite_liste_artiste(ListeArtiste* list){
     Artiste* current = *list;
     while(current != NULL){
         detruire_liste_oeuvre(&(current->PtOeuvre));
+        free(current->nom);
         next = current -> next;
         free(current);
         current = next;

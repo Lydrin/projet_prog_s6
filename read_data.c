@@ -19,20 +19,21 @@ bool read_file(HashListeArtiste ht)
         printf("Impossible d'ouvrir le fichier, introuvable ?\n");
     }
     fgets(chaine, MAX_STR_LEN,fp); //On passe la première ligne useless
-    while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
+        while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
         int idOeuvre;
-        char* accession_number;
+        //char* accession_number;
         char* artistName;
         int artistId;
         char* title;
         int year;
         int hashindice;
         Artiste* Ptartiste_existant;
-        idOeuvre = atoi(strdup(parse(chaine)));
-        accession_number = strdup((parse(NULL)));
+        idOeuvre = atoi((parse(chaine)));
+        //accession_number = strdup((parse(NULL)));
+        parse(NULL);
         artistName = strdup(parse(NULL));
         parse(NULL); //Pass artistRole
-        artistId = atoi(strdup((parse(NULL))));
+        artistId = atoi((parse(NULL)));
         title = strdup(parse(NULL));
         parse(NULL); //Pass dateText
         parse(NULL);   //Pass medium
@@ -48,9 +49,13 @@ bool read_file(HashListeArtiste ht)
             ajout_tete_oeuvre(&(ht[hashindice]->PtOeuvre),idOeuvre,title,year);
             ht[hashindice]->nombreOeuvre+=1;
         } 
+        //free(accession_number);
+        free(artistName);
+        free(title);
     }
     free(chaine);
     chaine = NULL;
+    fclose(fp);
     return true;
 }
 
