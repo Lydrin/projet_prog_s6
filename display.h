@@ -3,6 +3,7 @@
 
 #include "structure.h"
 void listeOeuvre(HashListeArtiste liste);
+void rechercheArtiste(int idArtist, HashListeArtiste liste); //TODO
 void displayOeuvre(Artiste * ptArtist);
 void listeOeuvreByArtist(int idArtist, HashListeArtiste liste);
 void displayNbOeuvre(Artiste * ptArtist);

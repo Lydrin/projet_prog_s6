@@ -34,6 +34,7 @@ void listeOeuvreByArtist(int idArtist, HashListeArtiste liste){
 	while(ptArtist != NULL){
 		if(ptArtist->artisteId==idArtist){
 			displayOeuvre(ptArtist);
+			return;
 		}
 		else{
 			ptArtist = ptArtist->next;
@@ -52,6 +53,7 @@ void nbOeuvreByArtist(int idArtist, HashListeArtiste liste){
 	while(ptArtist != NULL){
 		if(ptArtist->artisteId==idArtist){
 			displayNbOeuvre(ptArtist);
+			return;
 		}
 		else{
 			ptArtist = ptArtist->next;

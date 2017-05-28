@@ -6,9 +6,9 @@
 #include "listechaines.h"
 #include "hash.h"
 #include "display.h"
+#include "read_data.h"
 
-#define FICHIER "./data/tate_artwork.csv"
-#define MAX_STR_LEN 20000
+
 char* parse(char* s);
 
 bool read_file(HashListeArtiste ht)
@@ -58,7 +58,7 @@ bool read_file(HashListeArtiste ht)
     fclose(fp);
     return true;
 }
-
+/*
 int main(void)
 {
     HashListeArtiste ht; 
@@ -67,4 +67,4 @@ int main(void)
     listeOeuvre(ht);
     detruire_hash_table(ht);
     return 0;
-}
+}*/
