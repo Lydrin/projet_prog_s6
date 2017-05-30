@@ -9,7 +9,7 @@ void listeOeuvreByArtist(int idArtist, HashListeArtiste liste);
 void displayNbOeuvre(Artiste * ptArtist);
 void nbOeuvreByArtist(int idArtist, HashListeArtiste liste);
 void listeNbOeuvreByArtist(HashListeArtiste liste);
-void oldestOeuvre(Vieille * oldest);
+void oldestOeuvre(Oeuvre* oldest);
 
 
 #endif

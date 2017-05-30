@@ -10,8 +10,9 @@
 
 int main(){
 	HashListeArtiste ht; 
-    	init_ht(ht);
-    	read_file(ht);
+    init_ht(ht);
+    Oeuvre* oldest = NULL;
+    read_file(ht, &oldest);
 	printf("--------------------------------------------------\n");
 	printf("-- 		PROJET PROGRAMMATION	 	--\n");
 	printf("--	DELOBELLE Matthieu - DUROT Anthony	--\n");
@@ -53,7 +54,7 @@ int main(){
 				listeNbOeuvreByArtist(ht);
 				break;
 			case 6:
-				//oldestOeuvre(oldest);
+				oldestOeuvre(oldest);
 				break;
 			case 7:
 				detruire_hash_table(ht);

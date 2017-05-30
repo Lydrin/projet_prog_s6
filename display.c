@@ -75,8 +75,9 @@ void listeNbOeuvreByArtist(HashListeArtiste liste){
 	}
 }
 
-void oldestOeuvre(Vieille * oldest){
-	printf("The oldest piece is \"%s\" (%d) from %s\n",(oldest->PtOeuvre)->title,(oldest->PtOeuvre)->year,(oldest->PtArtiste)->nom);
+void oldestOeuvre(Oeuvre* oldest){
+	printf("The oldest piece is \"%s\" (%d) \n",oldest->title,oldest->year);
+
 }
 
 

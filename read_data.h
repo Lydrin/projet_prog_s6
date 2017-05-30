@@ -1,3 +1,4 @@
+#ifndef READ_DATA_H
 #define READ_DATA_H
 #define FICHIER "./data/tate_artwork.csv"
 #define MAX_STR_LEN 20000
@@ -11,4 +12,5 @@
 #include "hash.h"
 #include "display.h"
 
-bool read_file(HashListeArtiste ht);
+bool read_file(HashListeArtiste ht, Oeuvre** oldest);
+#endif

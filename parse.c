@@ -11,7 +11,7 @@ Ainsi "1970,"Blake, Robert",,," donnera quelque chose asimilable à [ "1970","Bl
 char* parse(char* s)
 {
     static char* reste;
-    int quote = 1;
+    char quote = 1;
     char delim = ',';
     int i = 0;
     if(reste==NULL && s==NULL)

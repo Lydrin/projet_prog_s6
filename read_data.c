@@ -11,7 +11,7 @@
 
 char* parse(char* s);
 
-bool read_file(HashListeArtiste ht)
+bool read_file(HashListeArtiste ht, Oeuvre** oldest)
 { 
     FILE* fp;
     char* chaine = (char*)malloc(MAX_STR_LEN * sizeof(char));
@@ -19,7 +19,7 @@ bool read_file(HashListeArtiste ht)
         printf("Impossible d'ouvrir le fichier, introuvable ?\n");
     }
     fgets(chaine, MAX_STR_LEN,fp); //On passe la première ligne useless
-        while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
+    while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
         int idOeuvre;
         //char* accession_number;
         char* artistName;
@@ -42,11 +42,11 @@ bool read_file(HashListeArtiste ht)
         hashindice = hash_int(artistId);
         Ptartiste_existant = artiste_present(artistId,ht[hashindice]);
         if(Ptartiste_existant  !=NULL){             //Si l'artiste actuel est déja renseigné
-            ajout_tete_oeuvre(&(Ptartiste_existant->PtOeuvre),idOeuvre,title,year);
+            ajout_tete_oeuvre(&(Ptartiste_existant->PtOeuvre),idOeuvre,title,year, oldest);
             Ptartiste_existant->nombreOeuvre+=1;
         }else{
             ajout_tete_artist(&(ht[hashindice]),artistId,artistName);
-            ajout_tete_oeuvre(&(ht[hashindice]->PtOeuvre),idOeuvre,title,year);
+            ajout_tete_oeuvre(&(ht[hashindice]->PtOeuvre),idOeuvre,title,year, oldest);
             ht[hashindice]->nombreOeuvre+=1;
         } 
         //free(accession_number);
@@ -58,13 +58,3 @@ bool read_file(HashListeArtiste ht)
     fclose(fp);
     return true;
 }
-/*
-int main(void)
-{
-    HashListeArtiste ht; 
-    init_ht(ht);
-    read_file(ht);
-    listeOeuvre(ht);
-    detruire_hash_table(ht);
-    return 0;
-}*/
