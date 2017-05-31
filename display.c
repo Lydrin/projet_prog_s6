@@ -17,6 +17,21 @@ void listeOeuvre(HashListeArtiste liste){
 	}
 }
 
+void rechercheArtiste(int idArtist, HashListeArtiste liste){
+	int h = hash_int(idArtist);
+	Artiste * ptArtist = liste[h];
+	while(ptArtist != NULL){
+		if(ptArtist->artisteId==idArtist){
+			printf("The artist with ID [%d] is %s\n",idArtist,ptArtist->nom);
+			return;
+		}
+		else{
+			ptArtist = ptArtist->next;
+		}
+	}
+	printf("Error : this artist doesn't exist\n");
+}
+
 void displayOeuvre(Artiste * ptArtist){
 	Oeuvre * pOeuvre = ptArtist->PtOeuvre;
 	printf("List of pieces from %s (id = %d)\n",ptArtist->nom,ptArtist->artisteId);
