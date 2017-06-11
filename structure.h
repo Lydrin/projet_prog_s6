@@ -2,7 +2,7 @@
 #define STRUCTURE_H
 #define MAX_OEUVRES 80000
 #define STRUCTURE_H 
-#define TABLE_SIZE 50
+#define TABLE_SIZE 334
 typedef struct{
     int id;
     char* accession_number;
