@@ -33,7 +33,7 @@ def ecart_type(dict_hash, table_size):
     somme = sqrt(somme)
     return somme
 
-fichier = open("stat.csv","a")
+fichier = open("stat.csv","w")
 list_rows = []
 set_artist = set()
 if(len(sys.argv)>1):
@@ -42,7 +42,7 @@ if(len(sys.argv)>1):
         for row in reader:
             list_rows.append(row)
         for e in list_rows:
-            set_artist.add(e['artistId'])
+            set_artist.add(int(e['artistId']))
     for table_size in range(1,5000):
         dict_hash={}
         for e in set_artist:
