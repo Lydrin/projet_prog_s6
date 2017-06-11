@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include"structure.h"
+#include "structure.h"
 #include "listechaines.h"
 #include "hash.h"
 #include "display.h"
