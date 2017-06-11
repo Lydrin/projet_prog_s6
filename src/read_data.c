@@ -17,6 +17,7 @@ bool read_file(HashListeArtiste ht, Oeuvre** oldest)
     char* chaine = (char*)malloc(MAX_STR_LEN * sizeof(char));
     if ((fp = fopen(FICHIER, "r")) == NULL) {
         printf("Impossible d'ouvrir le fichier, introuvable ?\n");
+		return false;
     }
     fgets(chaine, MAX_STR_LEN,fp); //On passe la première ligne useless
     while (fgets(chaine, MAX_STR_LEN, fp) != NULL){
