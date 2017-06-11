@@ -12,7 +12,7 @@ int asciis(char *word)
   int h=0;
   while(word[i]!='\0')
     {
-      h=h+(word[i]-96);
+      h=h+(word[i]);
       i++;
     }
   return h;

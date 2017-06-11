@@ -8,14 +8,14 @@ def asciis(word):
         h+=ord(word[i])
     return h
 
-def hashage(word, table_size):
-    return(asciis(word)%table_size)
+def hashage(ID, table_size):
+    return(ID%table_size)
 
-def add_dict(artist, table_size):
-    if(hashage(artist,table_size) not in dict_hash.keys()):
-        dict_hash[hashage(artist,table_size)]=[artist]
+def add_dict(ID, table_size):
+    if(hashage(ID,table_size) not in dict_hash.keys()):
+        dict_hash[hashage(ID,table_size)]=[ID]
     else:
-        dict_hash[hashage(artist, table_size)].append(artist)
+        dict_hash[hashage(ID, table_size)].append(ID)
 
 def moyenne(dict_hash, table_size):
     somme = 0
@@ -29,6 +29,7 @@ def ecart_type(dict_hash, table_size):
     somme = 0
     for e in dict_hash:
         somme = pow(len(dict_hash[e]) - moy,2)
+    somme /= table_size
     somme = sqrt(somme)
     return somme
 
@@ -41,7 +42,7 @@ if(len(sys.argv)>1):
         for row in reader:
             list_rows.append(row)
         for e in list_rows:
-            set_artist.add(e['artist'])
+            set_artist.add(e['artistId'])
     for table_size in range(1,5000):
         dict_hash={}
         for e in set_artist:
