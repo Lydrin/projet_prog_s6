@@ -38,7 +38,7 @@ int main(){
 			case 2:
 				printf("Pour quel ID ?\n");
 				scanf("%d",&id);
-				//rechercheArtiste(id, ht);
+				rechercheArtiste(id, ht);
 				break;
 			case 3:
 				printf("Pour quel ID ?\n");
